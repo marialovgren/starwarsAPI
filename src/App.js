@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 
 // imported pages
 import HomePage from './pages/HomePage'
-import SearchStarwars from './pages/SearchStarwars'
-import NotFound from './pages/NotFound'
+import Films from './pages/Films'
+import People from './pages/People'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,8 +19,8 @@ function App() {
 			<Container className="py-3">
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/search" element={<SearchStarwars />} />
-					<Route path="*" element={<NotFound />} />
+					<Route path="/films" element={<Films />} />
+					<Route path="/people" element={<People />} />
 				</Routes>
 			</Container>
     	</div>
