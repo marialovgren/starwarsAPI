@@ -4,7 +4,7 @@ body {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    background: #6B0F1A;
+    background: #ede2de;
     color: rgb(251, 245, 243);
 }
 
@@ -26,12 +26,13 @@ h1 {
 }
 
 .navbar-brand {
-    color: #020122 !important;
+    color: #FBF5F3 !important;
     font-size: 1.5em;
+    font-weight: 100;
 }
 
 .navStyle {
-	background-color: #6B0F1A;
+	background-color: #020122;
 }
 
 /* Main styles */
@@ -42,17 +43,27 @@ h1 {
 }
 
 .card {
-    color: #FBF5F3;
+    color: #020122;
     margin: 2em;
-    padding: 1em;
-    background-color: #020122;
-    border-radius: 1em;
+    background-color: #FBF5F3;
+    border-radius: 0.5em;
     border-style: none;
 }
 
 .cardWrapper {
     display: flex;
     justify-content: space-evenly;
+}
+
+.card-header {
+    background-color: #020122;
+    color: #FBF5F3;
+    margin: 0;
+    border-style: none;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
 }
   
 .btn {
