@@ -8,7 +8,7 @@ const HomePage = () => {
 			<h1>Welcome to the Starwars Encyclopedia!</h1>
 			<div className="cardWrapper">
 				<Card className="card">
-					<p>Join our galaxy you will</p>
+					<p>Join our galaxy, you will</p>
 					<Button className="btn" as={Link} to="/people">Characters</Button>
 					<Button className="btn" as={Link} to="/films">Films</Button>
 				</Card>
