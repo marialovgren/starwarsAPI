@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SWAPI from '../services/SWAPI'
 import { getIdFromUrl } from "../helpers"
-import { Row, Col, Card, ListGroup } from 'react-bootstrap'
+import { Row, Col, Card, ListGroup, Button } from 'react-bootstrap'
 
 
 const SingleFilmPage = () => {
@@ -91,6 +91,8 @@ return (
                                 ))} 
 							</Col>
 						</Row>
+
+                        <Button variant="success" to={'/films'}>Back</Button>
                     </Card.Body>
                 </Card>
             </Col>
