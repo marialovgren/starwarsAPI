@@ -1,33 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SWAPI from '../services/SWAPI'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
+import { getIdFromUrl } from "../helpers"
+import { Row, Col, Card, ListGroup } from 'react-bootstrap'
+
 
 const SingleFilmPage = () => {
     const [film, setFilm] = useState()
     const { id } = useParams()
-    const [characters, setCharacters] = useState()
+    const [characters, setCharacters] = useState([])
 
     const getFilm = async (id) => {
         const data = await SWAPI.getFilm(id)
         setFilm(data)
-    }
-
-    const getCharacters = acync () => {
-        const data = await SWAPI.getCharacters(id)
-        setCharacters(data)
+        setCharacters(data.characters)
     }
 
     useEffect(() => {
         getFilm(id)
       }, [id])
-
-    useEffect(() => {
-        getCharacters(id)
-    }, [id])
 
     if (!film) {
         return <p>Loading... </p>
@@ -43,7 +34,7 @@ return (
                         <Card.Title>Attributes</Card.Title>
                         <Row className="mb-3">
                             <Col md={4}>
-								<Card.Text><strong>Episode</strong></Card.Text>
+								<Card.Text>Episode</Card.Text>
 							</Col>
 							<Col md={8}>
 								<Card.Text>{film.episode_id}</Card.Text>
@@ -52,7 +43,7 @@ return (
 
                         <Row className="mb-3">
                             <Col md={4}>
-								<Card.Text><strong>Director</strong></Card.Text>
+								<Card.Text>Director</Card.Text>
 							</Col>
 							<Col md={8}>
 								<Card.Text>{film.director}</Card.Text>
@@ -61,7 +52,7 @@ return (
 
                         <Row className="mb-3">
 							<Col md={4}>
-								<Card.Text><strong>Producer</strong></Card.Text>
+								<Card.Text>Producer</Card.Text>
 							</Col>
 							<Col md={8}>
 								<Card.Text>{film.producer}</Card.Text>
@@ -70,7 +61,7 @@ return (
 
                         <Row className="mb-3">
 							<Col md={4}>
-								<Card.Text><strong>Release date</strong></Card.Text>
+								<Card.Text>Release date</Card.Text>
 							</Col>
 							<Col md={8}>
 								<Card.Text>{film.release_date}</Card.Text>
@@ -80,11 +71,26 @@ return (
 
                     <Card.Body>
                         <Card.Title>Links</Card.Title>
-                        <ListGroup>
-                            <ListGroup.Item>
-                                
-                            </ListGroup.Item>
-                        </ListGroup>
+                        <Row className="mb-3">
+							<Col md={4}>
+								<Card.Text>Characters</Card.Text>
+							</Col>
+
+							<Col md={8}>
+                                {characters.map((characters, index) => (
+                                    <ListGroup key={index}>
+                                        <ListGroup.Item
+                                           
+                                            variant="link"
+                                            key={characters.id}
+                                            to={`/people/${characters.id}`}>
+                                                Character {getIdFromUrl(characters)}
+                                        </ListGroup.Item>
+                    
+                                    </ListGroup>
+                                ))} 
+							</Col>
+						</Row>
                     </Card.Body>
                 </Card>
             </Col>
