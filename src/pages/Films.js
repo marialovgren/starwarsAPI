@@ -1,7 +1,11 @@
 import StarwarsAPI from '../services/SWAPI'
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
-
+import ListGroup from 'react-bootstrap/ListGroup'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Link from 'react-bootstrap/Link'
+import Button from 'react-bootstrap/Button'
 
 const Films = () => {
     const [films, setFilms] = useState("")
@@ -22,26 +26,32 @@ const Films = () => {
    
 
     return (
-        <div className="contentWrapper">
+        <>
 			<h1>Films</h1>
-			<div className="cardWrapper">
+			<Row xs={1} md={2} lg={3}>
 
             {films && films.results.map((films) => (
-                <Card className="card"> 
-                    <Card.Header>{films.title}</Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            Eposode id: {films.episode_id}
-                        </Card.Title>          
-                        <Card.Text>
-                            {films.opening_crawl}
-                        </Card.Text>
-                    </Card.Body>
-				</Card>
+                <Col>
+                    <Card className="card"> 
+                        <Card.Header>{films.title}</Card.Header>
+                        <ListGroup>
+                            <ListGroup.Item>
+                                Eposode {films.episode_id}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                Released {films.release_date}
+                            </ListGroup.Item>
+                        </ListGroup>
+
+                        <Card.Body>
+                        <Button className="btn" as={Link} to="/films/:id">Read more</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
             ))}
 
-			</div>
-		</div>
+			</Row>
+		</>
   )
 }
 
