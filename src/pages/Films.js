@@ -4,8 +4,7 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Link from 'react-bootstrap/Link'
-import Button from 'react-bootstrap/Button'
+
 
 const Films = () => {
     const [films, setFilms] = useState("")
@@ -14,8 +13,6 @@ const Films = () => {
 	const getFilms = async () => {
 		const data = await StarwarsAPI.getFilms()
 		setFilms(data)
-        console.log(data.results)
-        console.log(data)
 	}
 
     // Get films from API when component is first mounted
@@ -23,7 +20,6 @@ const Films = () => {
 		getFilms()
 	}, [])
 
-   
 
     return (
         <>
@@ -44,7 +40,7 @@ const Films = () => {
                         </ListGroup>
 
                         <Card.Body>
-                        <Button className="btn" as={Link} to="/films/:id">Read more</Button>
+                        
                         </Card.Body>
                     </Card>
                 </Col>

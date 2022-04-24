@@ -6,8 +6,8 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Films from './pages/Films'
 import SingleFilmPage from './pages/SingleFilmPage'
-import People from './pages/People'
-import SinglePerson from './pages/CharacterInfo'
+import Characters from './pages/Characters'
+import SingleCharacter from './pages/SingleCharacterPage'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.css'
@@ -23,8 +23,8 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/films" element={<Films />} />
 					<Route path="/films/:id" element={<SingleFilmPage />} />
-					<Route path="/people" element={<People />} />
-					<Route path="/people/:id" element={<SinglePerson />} />
+					<Route path="/people" element={<Characters />} />
+					<Route path="/people/:id" element={<SingleCharacter />} />
 				</Routes>
 			</Container>
     	</div>
