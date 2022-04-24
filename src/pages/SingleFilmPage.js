@@ -9,16 +9,25 @@ import ListGroup from 'react-bootstrap/ListGroup'
 const SingleFilmPage = () => {
     const [film, setFilm] = useState()
     const { id } = useParams()
-    const [character]
+    const [characters, setCharacters] = useState()
 
     const getFilm = async (id) => {
         const data = await SWAPI.getFilm(id)
         setFilm(data)
     }
 
+    const getCharacters = acync () => {
+        const data = await SWAPI.getCharacters(id)
+        setCharacters(data)
+    }
+
     useEffect(() => {
         getFilm(id)
       }, [id])
+
+    useEffect(() => {
+        getCharacters(id)
+    }, [id])
 
     if (!film) {
         return <p>Loading... </p>

@@ -27,7 +27,7 @@ const getFilm = async (id) => {
 /**
 * * Get all characters
 */
-const getPeople = async () => {
+const getCharacters = async () => {
     const res = await axios.get(`${BASE_URL}/people`)
     return res.data
 }
@@ -44,7 +44,7 @@ const getCharacter = async (id) => {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     getFilms,
-    getPeople,
+    getCharacters,
     getFilm,
     getCharacter,
 }
