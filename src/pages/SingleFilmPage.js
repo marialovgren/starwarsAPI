@@ -13,6 +13,7 @@ const SingleFilmPage = () => {
     const getFilm = async (id) => {
         const data = await SWAPI.getFilm(id)
         setFilm(data)
+        console.log(data)
         setCharacters(data.characters)
     }
 
