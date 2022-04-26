@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage'
 import Films from './pages/Films'
 import SingleFilmPage from './pages/SingleFilmPage'
 import Characters from './pages/Characters'
-import SingleCharacter from './pages/SingleCharacterPage'
+import SingleCharacterPage from './pages/SingleCharacterPage'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.css'
@@ -24,7 +24,7 @@ function App() {
 					<Route path="/films" element={<Films />} />
 					<Route path="/films/:id" element={<SingleFilmPage />} />
 					<Route path="/people" element={<Characters />} />
-					<Route path="/people/:id" element={<SingleCharacter />} />
+					<Route path="/people/:id" element={<SingleCharacterPage />} />
 				</Routes>
 			</Container>
     	</div>

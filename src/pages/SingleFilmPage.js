@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SWAPI from '../services/SWAPI'
-import { getIdFromUrl } from "../helpers"
-import { Row, Col, Card, ListGroup, Button } from 'react-bootstrap'
+import { getIdFromUrl } from "../helpers/index"
+import { Row, Col, Card, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 const SingleFilmPage = () => {
@@ -10,11 +11,11 @@ const SingleFilmPage = () => {
     const { id } = useParams()
     const [characters, setCharacters] = useState([])
 
-    const getFilm = async (id) => {
+    const getFilm = async () => {
         const data = await SWAPI.getFilm(id)
         setFilm(data)
-        console.log(data)
         setCharacters(data.characters)
+
     }
 
     useEffect(() => {
@@ -78,17 +79,12 @@ return (
 							</Col>
 
 							<Col md={8}>
-                                {characters.map((characters, index) => (
-                                    <ListGroup key={index}>
-                                        <ListGroup.Item
-                                           
-                                            variant="link"
-                                            key={characters.id}
-                                            to={`/people/${characters.id}`}>
-                                                Character {getIdFromUrl(characters)}
-                                        </ListGroup.Item>
-                    
-                                    </ListGroup>
+                                {characters.map(character => (
+                                   
+                                    <Link to={`/people/${getIdFromUrl(character)}`} key={character}>
+                                        <li>Character {getIdFromUrl(character)}</li>
+                                    </Link>
+                                       
                                 ))} 
 							</Col>
 						</Row>
