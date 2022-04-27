@@ -30,68 +30,66 @@ return (
     <>
         <Row>
             <Col>
-                <Card className="card">
-                    <Card.Header>{film.title}</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Attributes</Card.Title>
-                        <Row className="mb-3">
+                <div className="card">
+                    <div className="cardHeader">{film.title}</div>
+                    <div className="cardBody">
+                        <Row className="mb-3">Attributes</Row>
+                        <Row>
                             <Col md={4}>
-								<Card.Text>Episode</Card.Text>
+								<h3>Episode</h3>
 							</Col>
 							<Col md={8}>
-								<Card.Text>{film.episode_id}</Card.Text>
+								<p>{film.episode_id}</p>
 							</Col>
 						</Row>
 
-                        <Row className="mb-3">
+                        <Row>
                             <Col md={4}>
-								<Card.Text>Director</Card.Text>
+								<h3>Director</h3>
 							</Col>
 							<Col md={8}>
-								<Card.Text>{film.director}</Card.Text>
+								<p>{film.director}</p>
 							</Col>
 						</Row>
 
-                        <Row className="mb-3">
+                        <Row>
 							<Col md={4}>
-								<Card.Text>Producer</Card.Text>
+								<h3>Producer</h3>
 							</Col>
 							<Col md={8}>
-								<Card.Text>{film.producer}</Card.Text>
+								<p>{film.producer}</p>
 							</Col>
 						</Row>
 
-                        <Row className="mb-3">
+                        <Row>
 							<Col md={4}>
-								<Card.Text>Release date</Card.Text>
+								<h3>Release date</h3>
 							</Col>
 							<Col md={8}>
-								<Card.Text>{film.release_date}</Card.Text>
+								<p>{film.release_date}</p>
 							</Col>
 						</Row>
-                    </Card.Body>
+                    </div>
 
-                    <Card.Body>
-                        <Card.Title>Links</Card.Title>
-                        <Row className="mb-3">
+                    <Row className="mb-3">Links</Row>
+                        <Row>
 							<Col md={4}>
-								<Card.Text>Characters</Card.Text>
+								<h3>Characters</h3>
 							</Col>
 
 							<Col md={8}>
                                 {characters.map(character => (
-                                   
                                     <Link to={`/people/${getIdFromUrl(character)}`} key={character}>
                                         <li>Character {getIdFromUrl(character)}</li>
                                     </Link>
-                                       
                                 ))} 
 							</Col>
 						</Row>
-
+                        
+                    <div className='buttonWrapper'>
                         <Button variant="success" to={'/films'}>Back</Button>
-                    </Card.Body>
-                </Card>
+                    </div>
+                </div>
             </Col>
         </Row>  
     </>

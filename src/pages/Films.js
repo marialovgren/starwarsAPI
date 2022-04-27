@@ -1,6 +1,6 @@
 import StarwarsAPI from '../services/SWAPI'
 import { useState, useEffect } from 'react'
-import { Card, ListGroup, Row, Col, Button } from 'react-bootstrap'
+import { ListGroup, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -26,21 +26,23 @@ const Films = () => {
 
             {films && films.results.map((films) => (
                 <Col>
-                    <Card className="card"> 
-                        <Card.Header>{films.title}</Card.Header>
-                        <ListGroup>
-                            <ListGroup.Item>
-                                Episode {films.episode_id}
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                Released {films.release_date}
-                            </ListGroup.Item>
-                        </ListGroup>
+                    <div className="card"> 
+                        <div className="cardHeader">
+                            <h2>{films.title}</h2>
+                        </div>
 
-                        <Card.Body>
+                        <div className="cardBody">
+                            <Row>
+                                Episode {films.episode_id}
+                            </Row>
+                            <Row>
+                                Released {films.release_date}
+                            </Row>
+                        </div>
+                        <div className='buttonWrapper'>
                             <Button className="btn" as={Link} to={`/films/${films.episode_id}`}>Read more</Button>
-                        </Card.Body>
-                    </Card>
+                        </div>
+                    </div>
                 </Col>
             ))}
 

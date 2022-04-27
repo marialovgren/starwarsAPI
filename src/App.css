@@ -4,12 +4,17 @@ body {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    background: #ede2de;
+    background: url('images/star-wars-backgrounds-14.jpeg');
     color: rgb(251, 245, 243);
 }
 
 h1 {
-	color: #020122;
+	color: #F3F6EF;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h2 {
+    font-family: 'VT323', monospace;
 }
 
 /* Nav style */
@@ -29,22 +34,17 @@ h1 {
     color: #FBF5F3 !important;
     font-size: 1.5em;
     font-weight: 100;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .navStyle {
-	background-color: #020122;
+	background-color: #383838;
 }
 
 /* Main styles */
-.contentWrapper {
-    background-color: #ede2de;
-    border-radius: 1em;
-    padding: 2em;
-}
-
 .card {
-    color: #020122;
-    margin: 2em;
+    color: #F3F6EF;
+    margin: 1em;
     background-color: #FBF5F3;
     border-radius: 0.5em;
     border-style: none;
@@ -55,21 +55,26 @@ h1 {
     justify-content: space-evenly;
 }
 
-.card-header {
-    background-color: #020122;
-    color: #FBF5F3;
+.cardHeader {
+    background-color: #383838;
+    color: #F3F6EF;
     margin: 0;
+    padding: 1em;
+    border-top-left-radius : 0.5em;
+    border-top-right-radius : 0.5em;
     border-style: none;
 }
-.card-body {
+.cardBody {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    color: black;
+    padding: 1em;
 }
   
 .btn {
-	background-color: #ede2de;
-	color: #020122;
+	background-color: rgb(74, 3, 3);
+	color: #F3F6EF;
     margin: 0.5em;
 }
 
