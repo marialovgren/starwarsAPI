@@ -18,17 +18,21 @@ const Films = () => {
 		getFilms()
 	}, [])
 
+    if (!films) {
+        return <p>Loading... </p>
+    }
+
 
     return (
         <>
-			<h1>Films</h1>
+			<h2>Films</h2>
 			<Row xs={1} md={2} lg={3}>
 
             {films && films.results.map((films) => (
                 <Col>
                     <div className="card"> 
                         <div className="cardHeader">
-                            <h2>{films.title}</h2>
+                            <h3>{films.title}</h3>
                         </div>
 
                         <div className="cardBody">

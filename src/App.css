@@ -1,8 +1,8 @@
 /* base styles */
 body {
-    font-family: Raleway, sans-serif;
+    font-family: 'VT323', monospace;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.7em;
     text-align: center;
     background: url('images/star-wars-backgrounds-14.jpeg');
     color: rgb(251, 245, 243);
@@ -14,7 +14,20 @@ h1 {
 }
 
 h2 {
-    font-family: 'VT323', monospace;
+    font-size: 2em;
+}
+
+li {
+    list-style: none;
+    color: #6B0F1A;
+}
+
+li:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Nav style */
@@ -50,11 +63,6 @@ h2 {
     border-style: none;
 }
 
-.cardWrapper {
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .cardHeader {
     background-color: #383838;
     color: #F3F6EF;
@@ -67,15 +75,32 @@ h2 {
 .cardBody {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     color: black;
     padding: 1em;
 }
   
+.cardRow {
+    display: flex;
+    justify-content: center;
+}
+
+.cardColRight {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.cardColLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline
+}
+
 .btn {
 	background-color: rgb(74, 3, 3);
 	color: #F3F6EF;
     margin: 0.5em;
+    font-size: 1em;
 }
 
 .btn:hover {

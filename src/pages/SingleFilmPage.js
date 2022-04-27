@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SWAPI from '../services/SWAPI'
 import { getIdFromUrl } from "../helpers/index"
-import { Row, Col, Card, Button } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -31,60 +31,70 @@ return (
         <Row>
             <Col>
                 <div className="card">
-                    <div className="cardHeader">{film.title}</div>
+                    <div className="cardHeader"><h2>{film.title}</h2></div>
                     <div className="cardBody">
-                        <Row className="mb-3">Attributes</Row>
-                        <Row>
-                            <Col md={4}>
-								<h3>Episode</h3>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+                                <h2>Attributes</h2>
+                            </Col>
+                            <Col className="cardColRight"></Col>
+                        </Row>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+								<p>Episode</p>
 							</Col>
-							<Col md={8}>
+							<Col className="cardColRight">
 								<p>{film.episode_id}</p>
 							</Col>
 						</Row>
 
-                        <Row>
-                            <Col md={4}>
-								<h3>Director</h3>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+								<p>Director</p>
 							</Col>
-							<Col md={8}>
+							<Col className="cardColRight">
 								<p>{film.director}</p>
 							</Col>
 						</Row>
 
-                        <Row>
-							<Col md={4}>
-								<h3>Producer</h3>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+								<p>Producer</p>
 							</Col>
-							<Col md={8}>
+							<Col className="cardColRight">
 								<p>{film.producer}</p>
 							</Col>
 						</Row>
 
-                        <Row>
-							<Col md={4}>
-								<h3>Release date</h3>
+                        <Row className="cardRow"  md={3}>
+                            <Col className="cardColLeft">
+								<p>Release date</p>
 							</Col>
-							<Col md={8}>
+							<Col className="cardColRight">
 								<p>{film.release_date}</p>
 							</Col>
 						</Row>
-                    </div>
 
-                    <Row className="mb-3">Links</Row>
-                        <Row>
-							<Col md={4}>
-								<h3>Characters</h3>
-							</Col>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+                                <h2>Links</h2>
+                            </Col>
+                            <Col className="cardColRight"></Col>
+                        </Row>
+                        <Row className="cardRow" md={3}>
+                            <Col className="cardColLeft">
+                                <p>Characters</p>
+                            </Col>
 
-							<Col md={8}>
+                            <Col className="cardColRight">
                                 {characters.map(character => (
                                     <Link to={`/people/${getIdFromUrl(character)}`} key={character}>
                                         <li>Character {getIdFromUrl(character)}</li>
                                     </Link>
                                 ))} 
-							</Col>
-						</Row>
+                            </Col>
+                        </Row>
+                    </div>
                         
                     <div className='buttonWrapper'>
                         <Button variant="success" to={'/films'}>Back</Button>
