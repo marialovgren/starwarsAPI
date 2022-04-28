@@ -7,17 +7,20 @@ import { getIdFromUrl } from "../helpers/index"
 
 const Characters = () => {
     const [characters, setCharacters] = useState("")
+    const [page, setPage] = useState(0)
 
     // Get characters from API
 	const getCharacters = async () => {
-		const data = await StarwarsAPI.getCharacters()
+		const data = await StarwarsAPI.getCharacters(page)
 		setCharacters(data)
+        console.log(data)
 	}
 
     // Get characters from API when component is first mounted
 	useEffect(() => {
-		getCharacters()
-	}, [])
+		getCharacters(page)
+        console.log(page)
+	}, [page])
 
     if (!characters) {
         return <p>Loading... </p>
@@ -55,6 +58,24 @@ const Characters = () => {
             ))}
 
 			</Row>
+            <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
+                <div className="prev">
+                    <Button
+                        variant="primary"
+                        onClick={() => setPage(page - 1)}
+                        >
+                        Previous Page
+                    </Button>
+                </div>     
+                <div className="page">{page + 1}</div>
+				<div className="next">
+					<Button
+                        onClick={() => setPage(page + 1)}
+						variant="primary"
+						>Next Page
+                    </Button>
+				</div>
+            </div>
 		</>
   )
 }
