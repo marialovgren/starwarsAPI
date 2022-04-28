@@ -1,6 +1,6 @@
 import StarwarsAPI from '../services/SWAPI'
 import { useState, useEffect } from 'react'
-import { ListGroup, Row, Col, Button } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 

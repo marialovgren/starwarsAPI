@@ -7,12 +7,12 @@ const HomePage = () => {
 			<h1>Welcome to the Starwars Encyclopedia!</h1>
 			<div className="card">
 				<div className='cardHeader'>
-					<h2>Join our galaxy, you will</h2>
+					<h3>Join our galaxy, you will</h3>
 				</div>
-				<>	
-					<Button className="btn" as={Link} to="/people">Characters</Button>
+				<div className='buttonWrapper'>
+                    <Button className="btn" as={Link} to="/people">Characters</Button>
 					<Button className="btn" as={Link} to="/films">Films</Button>
-				</>
+                </div>
 			</div>
 		</>
 	)

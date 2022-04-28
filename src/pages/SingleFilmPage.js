@@ -97,7 +97,7 @@ return (
                     </div>
                         
                     <div className='buttonWrapper'>
-                        <Button variant="success" to={'/films'}>Back</Button>
+                        <Button className="btn" as={Link} to={'/films'}>Back</Button>
                     </div>
                 </div>
             </Col>
