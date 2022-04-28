@@ -61,8 +61,9 @@ const Characters = () => {
             <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
                 <div className="prev">
                     <Button
+                        disabled={page === 0}
                         variant="primary"
-                        onClick={() => setPage(page - 1)}
+                        onClick={() => setPage(prevValue => prevValue - 1)}
                         >
                         Previous Page
                     </Button>
@@ -70,7 +71,8 @@ const Characters = () => {
                 <div className="page">{page + 1}</div>
 				<div className="next">
 					<Button
-                        onClick={() => setPage(page + 1)}
+                        disabled={!characters.next}
+                        onClick={() => setPage(prevValue => prevValue + 1)}
 						variant="primary"
 						>Next Page
                     </Button>
