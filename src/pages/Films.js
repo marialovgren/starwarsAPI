@@ -42,6 +42,9 @@ const Films = () => {
                             <Row>
                                 Released {films.release_date}
                             </Row>
+                            <Row>
+                                {films.characters.length} characters
+                            </Row>
                         </div>
                         <div className='buttonWrapper'>
                             <Button className="btn" as={Link} to={`/films/${films.episode_id}`}>Read more</Button>

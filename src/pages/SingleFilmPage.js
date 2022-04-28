@@ -35,12 +35,6 @@ return (
                     <div className="cardBody">
                         <Row className="cardRow" md={3}>
                             <Col className="cardColLeft">
-                                <h2>Attributes</h2>
-                            </Col>
-                            <Col className="cardColRight"></Col>
-                        </Row>
-                        <Row className="cardRow" md={3}>
-                            <Col className="cardColLeft">
 								<p>Episode</p>
 							</Col>
 							<Col className="cardColRight">
@@ -75,12 +69,12 @@ return (
 							</Col>
 						</Row>
 
-                        <Row className="cardRow" md={3}>
-                            <Col className="cardColLeft">
-                                <h2>Links</h2>
+                        <Row className="cardRow" md={1}>
+                            <Col>
+                                <h2>Characters in this film:</h2>
                             </Col>
-                            <Col className="cardColRight"></Col>
                         </Row>
+
                         <Row className="cardRow" md={3}>
                             <Col className="cardColLeft">
                                 <p>Characters</p>
