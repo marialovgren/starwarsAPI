@@ -19,7 +19,6 @@ const Characters = () => {
     // Get characters from API when component is first mounted
 	useEffect(() => {
 		getCharacters(page)
-        console.log(page)
 	}, [page])
 
     if (!characters) {
@@ -54,30 +53,34 @@ const Characters = () => {
                            <Button className="btn" as={Link} to={`/people/${getIdFromUrl(characters.url)}`}>Read more</Button>
                         </div>
                     </div>
+                    
                 </Col>
             ))}
 
 			</Row>
-            <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
-                <div className="prev">
-                    <Button
-                        disabled={page === 0}
-                        variant="primary"
-                        onClick={() => setPage(prevValue => prevValue - 1)}
-                        >
-                        Previous Page
-                    </Button>
-                </div>     
-                <div className="page">{page + 1}</div>
-				<div className="next">
-					<Button
-                        disabled={!characters.next}
-                        onClick={() => setPage(prevValue => prevValue + 1)}
-						variant="primary"
-						>Next Page
-                    </Button>
-				</div>
-            </div>
+
+            <Row>
+                    <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
+                    <div className="prev">
+                        <Button
+                            disabled={page === 0}
+                            variant="primary"
+                            onClick={() => setPage(prevValue => prevValue - 1)}
+                            >
+                            Previous Page
+                        </Button>
+                    </div>     
+                    <div className="page">{page + 1}</div>
+                    <div className="next">
+                        <Button
+                            disabled={!characters.next}
+                            onClick={() => setPage(prevValue => prevValue + 1)}
+                            variant="primary"
+                            >Next Page
+                        </Button>
+                    </div>
+                    </div>
+                </Row>
 		</>
   )
 }
