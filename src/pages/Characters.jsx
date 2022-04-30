@@ -7,7 +7,7 @@ import { getIdFromUrl } from "../helpers/index"
 
 const Characters = () => {
     const [characters, setCharacters] = useState("")
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false) 
 
     // Get characters from API when component is first mounted
@@ -19,7 +19,6 @@ const Characters = () => {
             setLoading(false)
         }
 		getCharacters(page)
-        console.log(page)
 	}, [page])
 
     return (
@@ -66,7 +65,7 @@ const Characters = () => {
                 <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
                     <div className="prev">
                         <Button
-                            disabled={page === 0}
+                            disabled={!characters.previous}
                             variant="primary"
                             onClick={() => setPage(prevValue => prevValue - 1)}
                             >
@@ -76,10 +75,11 @@ const Characters = () => {
 
                     {loading && <h3>Loading...</h3>}
 
-                    <div className="page">{page + 1}</div>
+                    <div className="page">{page}</div>
                     <div className="next">
                         <Button
-                            disabled={page === !characters.next}
+                            /* disabled={!characters.next} */
+                            disabled={!characters.next}
                             onClick={() => setPage(prevValue => prevValue + 1)}
                             variant="primary"
                             >Next Page
