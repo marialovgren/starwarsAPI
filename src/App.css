@@ -96,12 +96,12 @@ a {
 }
 
 .btn {
-	background-color: rgb(74, 3, 3);
+	background-color: rgb(74, 3, 3) !important;
 	color: #F3F6EF;
     margin: 0.5em;
     font-size: 1em;
 }
 
 .btn:hover {
-    background-color: #6B0F1A;
+    background-color: #6B0F1A !important;
 }

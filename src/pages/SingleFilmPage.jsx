@@ -11,14 +11,12 @@ const SingleFilmPage = () => {
     const { id } = useParams()
     const [characters, setCharacters] = useState([])
 
-    const getFilm = async () => {
-        const data = await SWAPI.getFilm(id)
-        setFilm(data)
-        setCharacters(data.characters)
-
-    }
-
     useEffect(() => {
+        const getFilm = async () => {
+            const data = await SWAPI.getFilm(id)
+            setFilm(data)
+            setCharacters(data.characters)
+        }
         getFilm(id)
       }, [id])
 
