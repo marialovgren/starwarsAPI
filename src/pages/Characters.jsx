@@ -19,6 +19,7 @@ const Characters = () => {
             setLoading(false)
         }
 		getCharacters(page)
+        console.log(page)
 	}, [page])
 
     return (
@@ -28,8 +29,8 @@ const Characters = () => {
 
             {loading && <h3>Loading ...</h3>}
 
-            {characters && characters.results.map((characters) => (
-                <Col>
+            {characters && characters.results.map((characters, index) => (
+                <Col key={index}>
                     <div className="card"> 
                         <div className="cardHeader">
                             <h3>{characters.name}</h3>
@@ -78,7 +79,7 @@ const Characters = () => {
                     <div className="page">{page + 1}</div>
                     <div className="next">
                         <Button
-                            disabled={!characters.next}
+                            disabled={page === !characters.next}
                             onClick={() => setPage(prevValue => prevValue + 1)}
                             variant="primary"
                             >Next Page
