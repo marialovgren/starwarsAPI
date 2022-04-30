@@ -8,28 +8,28 @@ import { getIdFromUrl } from "../helpers/index"
 const Characters = () => {
     const [characters, setCharacters] = useState("")
     const [page, setPage] = useState(0)
-
-    // Get characters from API
-	const getCharacters = async () => {
-		const data = await StarwarsAPI.getCharacters(page)
-		setCharacters(data)
-        console.log(data)
-	}
+    const [loading, setLoading] = useState(false) 
 
     // Get characters from API when component is first mounted
 	useEffect(() => {
+        const getCharacters = async () => {
+            setLoading(true)
+            const data = await StarwarsAPI.getCharacters(page)
+            setCharacters(data)
+            setLoading(false)
+            console.log(data)
+        }
 		getCharacters(page)
 	}, [page])
-
-    if (!characters) {
-        return <p>Loading... </p>
-    }
-
 
     return (
         <>
 			<h2>Characters</h2>
 			<Row xs={1} md={2} lg={3}>
+
+            {loading && <h3>Loading ...</h3>}
+
+          
 
             {characters && characters.results.map((characters) => (
                 <Col>
@@ -69,7 +69,10 @@ const Characters = () => {
                             >
                             Previous Page
                         </Button>
-                    </div>     
+                    </div>  
+
+                    {loading && (<div><h3>Loading...</h3></div>)}
+
                     <div className="page">{page + 1}</div>
                     <div className="next">
                         <Button
