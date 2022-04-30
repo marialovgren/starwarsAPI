@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.9em;
 }
 
 li {
@@ -51,6 +51,11 @@ a {
 
 .navStyle {
 	background-color: #383838;
+}
+
+.logoStyle p {
+    font-size: 0.75em;
+    color: #d67580;
 }
 
 /* Main styles */
@@ -103,5 +108,5 @@ a {
 }
 
 .btn:hover {
-    background-color: #6B0F1A !important;
+    background-color: #d67580 !important;
 }

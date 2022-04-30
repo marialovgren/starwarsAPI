@@ -24,7 +24,7 @@ const Characters = () => {
     return (
         <>
 			<h2>Characters</h2>
-			<Row xs={1} md={2} lg={3}>
+			<Row xs={1} md={2} lg={4}>
 
             {loading && <h3>Loading ...</h3>}
 
