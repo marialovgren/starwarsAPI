@@ -17,7 +17,6 @@ const Characters = () => {
             const data = await StarwarsAPI.getCharacters(page)
             setCharacters(data)
             setLoading(false)
-            console.log(data)
         }
 		getCharacters(page)
 	}, [page])
@@ -28,8 +27,6 @@ const Characters = () => {
 			<Row xs={1} md={2} lg={3}>
 
             {loading && <h3>Loading ...</h3>}
-
-          
 
             {characters && characters.results.map((characters) => (
                 <Col>
@@ -50,7 +47,12 @@ const Characters = () => {
                             </Row>
                         </div>
                         <div className='buttonWrapper'>
-                           <Button className="btn" as={Link} to={`/people/${getIdFromUrl(characters.url)}`}>Read more</Button>
+                           <Button 
+                                className="btn" 
+                                as={Link} 
+                                to={`/people/${getIdFromUrl(characters.url)}`}>
+                                Read more
+                            </Button>
                         </div>
                     </div>
                     
@@ -60,7 +62,7 @@ const Characters = () => {
 			</Row>
 
             <Row>
-                    <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
+                <div className="d-flex justify-content-between align-items-center mt-4 bg-dark">
                     <div className="prev">
                         <Button
                             disabled={page === 0}
@@ -71,7 +73,7 @@ const Characters = () => {
                         </Button>
                     </div>  
 
-                    {loading && (<div><h3>Loading...</h3></div>)}
+                    {loading && <h3>Loading...</h3>}
 
                     <div className="page">{page + 1}</div>
                     <div className="next">
@@ -82,7 +84,7 @@ const Characters = () => {
                             >Next Page
                         </Button>
                     </div>
-                    </div>
+                </div>
                 </Row>
 		</>
   )
