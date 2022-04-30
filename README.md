@@ -38,4 +38,4 @@ The assignment was to build a simple website with React using the Star Wars API 
 
 ## Printscreen
 
-<img src="" width=100%>
+<img src="https://github.com/marialovgren/starwarsAPI/blob/main/src/images/Screenshot.jpeg" width=100%>
